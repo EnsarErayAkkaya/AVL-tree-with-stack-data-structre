@@ -20,10 +20,7 @@ class Stack {
 public:
     Stack();
     void Push( char );
-    int Length();
-    char Top();
     char Pop();
-    bool Empty();
     void Print();
 
 private:

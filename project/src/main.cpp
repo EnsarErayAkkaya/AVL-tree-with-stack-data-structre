@@ -1,23 +1,32 @@
+/**
+* main.cpp 
+* main dosyası 'Kisiler.txt' dosyasından verileri çeker ağaca ekler ve tüm veriler bitince postOrder ile yazdırır. 
+* @course !!!!!!! Dersi aldığınız eğitim türü ve grup !!!!!!!!!
+* @assignment !!!!!!! Kaçıncı ödev olduğu !!!!!!
+* 23/08/2020
+* Melisa Çakmak
+*/
+
 #include <iostream>
 #include <fstream>
-#include "../lib/AVLTree.h"
+#include "../include/AVLTree.h"
 #include "AVLTree.cpp"
 
 using namespace std;
 
 int main(int argc, const char * argv[])
 {
-    AVLTree *avlTree = new AVLTree();
+    AVLTree *avlTree = new AVLTree(); // ağaç oluşturuldu
 
-    const string delimiter = "#";
+    const string delimiter = "#"; // Kisiler.txt de ayraç olarak kullanılan karakteri ata
 
     string line;
     
-    ifstream myfile ("../Kisiler.txt");
+    ifstream myfile ("../Kisiler.txt"); // dosyaya eriş
     
-    if (myfile.is_open())
+    if (myfile.is_open()) // eğer dosyayı açabildiysen
     {
-        while ( getline (myfile,line) )
+        while ( getline (myfile,line) ) // ilk satırı okur
         {
             string _name;
             int _age;
@@ -25,48 +34,40 @@ int main(int argc, const char * argv[])
 
             size_t pos = 0;
             
-            // get name
-            pos = line.find(delimiter);
-            _name = line.substr(0, pos);
-            line.erase(0, pos + delimiter.length());
-            //
+            // veriler okunur ve formatlanır           
+            #pragma region VerileriOkuFormatla
+                // get name
+                pos = line.find(delimiter);
+                _name = line.substr(0, pos);
+                line.erase(0, pos + delimiter.length());
+                //
+                
+                // get age
+                pos = line.find(delimiter);
+                _age = stoi( line.substr(0, pos) );
+                _age = 2020 - _age;
+                line.erase(0, pos + delimiter.length());
+                //
+                
+                // get weight
+                _weight = stoi(line);
+                //
+            #pragma endregion
             
-            // get age
-            pos = line.find(delimiter);
-            _age = stoi( line.substr(0, pos) );
-            _age = 2020 - _age;
-            line.erase(0, pos + delimiter.length());
-            //
+            PersonData *person = new PersonData(_name, _age, _weight); // PersonData oluştur
             
-            // get weight
-            _weight = stoi(line);
-            //
-            PersonData *person = new PersonData(_name, _age, _weight);
-            try
-            {                
-                cout << "\n"<< person->name << ": eklendi" << endl;
-                avlTree->insert(*person);
-            }
-            catch(const std::exception& e)
-            {
-                std::cerr << e.what() << '\n';
-            }
+                           
+            avlTree->insert(*person); // ağaca ekle
+        
+            avlTree->updateNodesPostOrder(avlTree->root); // ekleme ve dengeleme işleminden sonra UpdatesNodeOostOrder ı çağır
 
-            try
-            {
-                avlTree->updateNodesPostOrder(avlTree->root);
-            }
-            catch(const std::exception& e)
-            {
-                std::cerr << e.what() << '\n';
-            }
-            avlTree->turn += 1;
+            avlTree->turn += 1; // yeni tura geç
         }
         
-        myfile.close();
+        myfile.close();// dosyatı kapat
     }
     else
-        cout << "Unable to open file"; 
+        cout << "Dosya bulunamıyor veya açılamıyor"; 
 
-    avlTree->printPostOrder(avlTree->root);
+    avlTree->printPostOrder(avlTree->root); // postOrder şeklinde tüm verileri ekrana yazdır
 }

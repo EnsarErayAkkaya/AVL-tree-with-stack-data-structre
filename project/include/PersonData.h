@@ -1,3 +1,11 @@
+/**
+* PersonData.h 
+* PersonData.cpp dosyasının header dosyasıdır, kişiler.txt den gelen verileri tutar.
+* @course !!!!!!! Dersi aldığınız eğitim türü ve grup !!!!!!!!!
+* @assignment !!!!!!! Kaçıncı ödev olduğu !!!!!!
+* 24/08/2020
+* Melisa Çakmak
+*/
 #ifndef PersonData_h
 #define PersonData_h
 

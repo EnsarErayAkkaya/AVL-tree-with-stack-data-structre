@@ -1,3 +1,11 @@
+/**
+* AVLTreeNode.h 
+* AVLTreeNode.cpp dosyasının header dosyasıdır, avl ağacının düğümlerini oluşturan yapıyı tutar.
+* @course !!!!!!! Dersi aldığınız eğitim türü ve grup !!!!!!!!!
+* @assignment !!!!!!! Kaçıncı ödev olduğu !!!!!!
+* 24/08/2020
+* Melisa Çakmak
+*/
 #ifndef AVLTreeNode_h
 #define AVLTreeNode_h
 
@@ -10,7 +18,6 @@ class AVLTreeNode {
     int lastHeight;
     
     public:
-        int count;  // how many nodes are there in this subtree
         int height;
         int lastEditedTurn;
         bool isJustCreated;

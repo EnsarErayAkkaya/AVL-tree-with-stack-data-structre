@@ -7,7 +7,7 @@
 * Melisa Çakmak
 */
 
-#include "../lib/Stack.h"
+#include "../include/Stack.h"
 using namespace std;
 
 // Constructer
@@ -16,9 +16,14 @@ Stack::Stack()
   stack[0] = 'O';
   top = 1;
 }
+
+// stackteki verileri pop methodunu kullanarak(son eklenenden başa) consola basar
 void Stack::Print()
 {
-  cout << stack;
+  while (top > 0)
+  {
+      cout << Pop();
+  }
 }
 
 // Push method, yeni bir eleman ekler
@@ -28,20 +33,6 @@ void Stack::Push(char val)
   top = top + 1;
 }
 
-// Stackin uzunluğunu veren method
-int Stack::Length()
-{
-  cout << top << "items currently in stack" << endl;
-  return (top);
-}
-
-// Stackin en son elemanını veren method
-char Stack::Top()
-{
-  //cout << "reached Top method" << endl;
-  return (stack[top - 1]);
-}
-
 // Pop method, en üst elemanı çıkartır
 char Stack::Pop()
 {
@@ -49,16 +40,4 @@ char Stack::Pop()
   char temp = stack[top];
   stack[top] = '\0';
   return (temp);
-}
-
-// Stack boş mu
-bool Stack::Empty()
-{
-  bool val;
-  val = true;
-  if (top > 0)
-  {
-    val = false;
-  }
-  return (val);
 }

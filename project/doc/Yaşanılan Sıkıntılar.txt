@@ -1,0 +1,9 @@
+Yaşanılan Sıkıntılar:
+    -makefile dosyasını hazırlaması biraz sıkıntılı ve internette bu konuda araştırma yapmak yorucuydu. Çoğu c++ programcısının
+    bir bilgisayar mühendisliği temelli olmamasından olacak ki github ve diğer sitelerdeki çoğu örnek bir standart olmadan ve 
+    klasör düzeninden mahrum tasarlanmış. makefile da özellikle, oluşturulan *.o dosyalarını "lib" klasörüne atma kısmı beklenilenin 
+    aksine en çok zaman tükenten kısımdı.
+    Aynı zamanda avl ağacında herhangi bir düğümün altına yeni bir düğüm eklendiğinde yükselmeme mantığını ilk başta anlayamamıştım.
+    Gerçi anlayınca bu değişikliği implemente etmek zor olmadı, ancak bunu ilk öğrendiğimde biraz şaşırdım. Buna sabit konumunu koruyorsa
+    'D' karakteri girilsin denilmiş ama aslında dönmediyse yüksekliği değişse bile 'Y' harfi girilmeyecek olarak algoritmama ekleyince 
+    işler kolaylaştı.

@@ -7,7 +7,11 @@
             "command": "C:\\MinGW\\bin\\g++.exe",
             "args": [
                 "-g",
-                "${file}",
+                "x:\\Eray2\\Odevler\\MelisaCakmak\\project\\src\\main.cpp",
+                "x:\\Eray2\\Odevler\\MelisaCakmak\\project\\src\\AVLTree.cpp",
+                "x:\\Eray2\\Odevler\\MelisaCakmak\\project\\src\\AVLTreeNode.cpp",
+                "x:\\Eray2\\Odevler\\MelisaCakmak\\project\\src\\PersonData.cpp",
+                "x:\\Eray2\\Odevler\\MelisaCakmak\\project\\src\\Stack.cpp",
                 "-o",
                 "x:\\Eray2\\Odevler\\MelisaCakmak\\project\\bin\\${fileBasenameNoExtension}.exe",
                 "-static-libstdc++"

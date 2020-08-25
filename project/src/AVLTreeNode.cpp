@@ -8,8 +8,6 @@
 */
 
 #include "../include/AVLTreeNode.h"
-#include "PersonData.cpp"
-#include "Stack.cpp"
 
 // AVLTreeNode const. PersonData ve turn verisi alır turn (turn verisi anlamak için AVLTree.h dosyasına bakınız)
 AVLTreeNode::AVLTreeNode(PersonData value, int _turn){
@@ -47,7 +45,8 @@ void AVLTreeNode::PushNewState(int turn)
     {
         lastHeight = height;
         return;
-    }   
+    } 
+    // eğer dönmediyse 'D' ver yüksekliği kaydet
     if(isRotated == false)
     {
         lastHeight = height;
@@ -57,15 +56,6 @@ void AVLTreeNode::PushNewState(int turn)
     //eğer bu tur ilk kez giriyorsan
     if(lastEditedTurn != turn)
     {
-      /*   // tur farkını hesapla 0 dan büyükse, kaç tur girmediyseno kadar 'D' ekle çünkü kıpırdamadın. 
-        if(turn-lastEditedTurn-2 > 0)
-        {
-            cout<<turn-lastEditedTurn<< endl;
-            for (size_t i = 0; i < (turn-lastEditedTurn+1); i++)
-            {
-                stack.Push('D');
-            }
-        } */
         // turu eşitle
         lastEditedTurn = turn;
 
@@ -85,7 +75,7 @@ void AVLTreeNode::PushNewState(int turn)
     }
     // yeni yüksekliğini kaydet
     lastHeight = height;
-    // döndü mü değerini sıfırla
+
     this->isRotated = false;
 }
 

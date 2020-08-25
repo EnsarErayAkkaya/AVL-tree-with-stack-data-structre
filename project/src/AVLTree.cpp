@@ -8,7 +8,6 @@
 */
 
 #include "../include/AVLTree.h"
-#include "AVLTreeNode.cpp"
 
 // constructer
 AVLTree::AVLTree(){

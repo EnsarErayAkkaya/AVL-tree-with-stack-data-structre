@@ -10,7 +10,6 @@
 #include <iostream>
 #include <fstream>
 #include "../include/AVLTree.h"
-#include "AVLTree.cpp"
 
 using namespace std;
 
@@ -35,24 +34,22 @@ int main(int argc, const char * argv[])
             size_t pos = 0;
             
             // veriler okunur ve formatlanır           
-            #pragma region VerileriOkuFormatla
-                // get name
-                pos = line.find(delimiter);
-                _name = line.substr(0, pos);
-                line.erase(0, pos + delimiter.length());
-                //
-                
-                // get age
-                pos = line.find(delimiter);
-                _age = stoi( line.substr(0, pos) );
-                _age = 2020 - _age;
-                line.erase(0, pos + delimiter.length());
-                //
-                
-                // get weight
-                _weight = stoi(line);
-                //
-            #pragma endregion
+            // get name
+            pos = line.find(delimiter);
+            _name = line.substr(0, pos);
+            line.erase(0, pos + delimiter.length());
+            //
+            
+            // get age
+            pos = line.find(delimiter);
+            _age = stoi( line.substr(0, pos) );
+            _age = 2020 - _age;
+            line.erase(0, pos + delimiter.length());
+            //
+            
+            // get weight
+            _weight = stoi(line);
+            //
             
             PersonData *person = new PersonData(_name, _age, _weight); // PersonData oluştur
             

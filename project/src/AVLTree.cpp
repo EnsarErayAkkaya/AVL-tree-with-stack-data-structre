@@ -15,7 +15,7 @@ AVLTree::AVLTree(){
 }
 
 // yeni düğüm ekler
-void AVLTree::insert(PersonData value)
+void AVLTree::insert(PersonData *value)
 {
     AVLTreeNode **indirect = &root;                   // rootun konumunu bir pointera kaydet
     std::vector<AVLTreeNode**> path;                  // daha sonra ağacı dengelemek için dolaşılan düğümlerin listesi
@@ -24,7 +24,7 @@ void AVLTree::insert(PersonData value)
     {
         path.push_back(indirect);                     // düğümü listeye ekle
         
-        if ((*indirect)->personData.age >= value.age) // eğer yaşı küçük ve ya eşitse sola git
+        if ((*indirect)->personData->age >= value->age) // eğer yaşı küçük ve ya eşitse sola git
             indirect = &((*indirect)->left);
         else                                          // büyükse sağa git
             indirect = &((*indirect)->right);

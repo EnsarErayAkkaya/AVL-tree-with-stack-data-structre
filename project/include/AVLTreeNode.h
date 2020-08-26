@@ -26,7 +26,7 @@ class AVLTreeNode {
         AVLTreeNode *left;
         AVLTreeNode *right;
 
-        AVLTreeNode(PersonData value, int _turn);
+        AVLTreeNode(PersonData *value, int _turn);
         void Print();
 
         AVLTreeNode* left_rotate(int turn);
@@ -36,7 +36,7 @@ class AVLTreeNode {
         void updateValues(int turn);
         int balanceFactor(); 
 
-        PersonData personData; // holds persons data
+        PersonData* personData; // holds persons datas addres
         Stack stack;    
 };
 

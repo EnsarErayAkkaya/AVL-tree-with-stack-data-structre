@@ -51,14 +51,16 @@ int main(int argc, const char * argv[])
             _weight = stoi(line);
             //
             
-            PersonData *person = new PersonData(_name, _age, _weight); // PersonData oluştur
-            
+            PersonData *person = new PersonData(_name, _age, _weight); // PersonData ve pointerını oluştur
                            
-            avlTree->insert(*person); // ağaca ekle
+            avlTree->insert(person); // ağaca ekle
         
             avlTree->updateNodesPostOrder(avlTree->root); // ekleme ve dengeleme işleminden sonra UpdatesNodeOostOrder ı çağır
 
             avlTree->turn += 1; // yeni tura geç
+
+            person = nullptr;//pointerı null yap
+            delete person;// ve sil
         }
         
         myfile.close();// dosyatı kapat
@@ -67,4 +69,11 @@ int main(int argc, const char * argv[])
         cout << "Dosya bulunamıyor veya açılamıyor"; 
 
     avlTree->printPostOrder(avlTree->root); // postOrder şeklinde tüm verileri ekrana yazdır
+
+    //Burası entera basınca kapanmasını sağlıyor consolda çalıştırılırsa bunu aktif ediniz
+    //ancak ödevde "ekrana yazdırılıp kapansın" dendiği için ben yoruma alıyorum.
+
+    /* std::cin.ignore(std::cin.rdbuf()->in_avail());
+    std::cout << "press enter to close\n";
+    std::cin.ignore(); */
 }

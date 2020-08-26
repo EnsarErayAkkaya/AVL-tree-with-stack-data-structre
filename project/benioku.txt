@@ -1,0 +1,2 @@
+Windows Consolda çalıştırılırsa main.cpp dosyasının son 3 satırını yorum dışı ederek siz entera 
+basana kadar beklemesini sağlayabilirsiniz. Aksi halde göremezsiniz.

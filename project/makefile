@@ -18,7 +18,7 @@ program:$(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(OUT_DIR)/program -static-libstdc++
 
 $(OBJDIR)/%.o: %.cpp
-	$(CC) $(CPPFLAGS) $(CXXFLAGS) -c -o  $@ $<
+	$(CC) -c -o  $@ $<
 
 .PHONY : clean
 clean :

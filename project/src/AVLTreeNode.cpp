@@ -9,10 +9,10 @@
 
 #include "../include/AVLTreeNode.h"
 
-// AVLTreeNode const. PersonData ve turn verisi alır turn (turn verisi anlamak için AVLTree.h dosyasına bakınız)
-AVLTreeNode::AVLTreeNode(PersonData value, int _turn){
+// AVLTreeNode const. PersonData ve turn verisi alır turn (turn verisini anlamak için AVLTree.h dosyasına bakınız)
+AVLTreeNode::AVLTreeNode(PersonData *value, int _turn){
 
-    personData = value;
+    personData = value; // personData ya pointerın heap deki adresini kaydet
     stack = Stack();
 
     height = 1;
@@ -27,7 +27,7 @@ AVLTreeNode::AVLTreeNode(PersonData value, int _turn){
 // AVLTreeNode daki PersonData verisini consola yazar
 void AVLTreeNode::Print()
 {
-    cout << personData.name << " : "<<  personData.age << " : " << personData.weight << "   Stack: "; 
+    cout << personData->name << " : "<<  personData->age << " : " << personData->weight << "   Stack: "; 
     stack.Print(); // stacki ekrana basmak için çağırır
     cout << endl; 
 }

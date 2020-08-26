@@ -30,7 +30,7 @@ class AVLTree {
         
         void printPostOrder(AVLTreeNode* node);
 
-        void insert(PersonData value);
+        void insert(PersonData *value);
 };
 
 #endif /* AVLTree_hpp */
